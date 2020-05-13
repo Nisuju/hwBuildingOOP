@@ -12,6 +12,8 @@ public class Main {
         building.getRoom("Room1").add(new Chair("Guest's Chair",1));
         building.getRoom("Room1").add(new Lamp(150));
 
+        building.getRoom("Room2").add(new Table("New Table",1,3));
+
         building.showAllRooms();
 
 

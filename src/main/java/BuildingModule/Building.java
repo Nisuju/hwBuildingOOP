@@ -32,7 +32,7 @@ public class Building {
         }
         return null;
     }
-    public int calcOverallLuminosity
+
     public void describe(){
 
     }

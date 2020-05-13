@@ -13,16 +13,28 @@ public class Room {
         this.roomArea = roomArea;
         this.numberOfWindows = numberOfWindows;
     }
-    private List<Stuff> objectsInBuilding=new ArrayList<Stuff>();
+    private List<Stuff> objectsInRoom =new ArrayList<Stuff>();
 
     public String getRoomName() {
         return roomName;
     }
     public void add(Lamp lamp){
-        objectsInBuilding.add(lamp);
+        objectsInRoom.add(lamp);
     }
     public void add(Furniture furniture){
-        objectsInBuilding.add(furniture);
+        objectsInRoom.add(furniture);
+    }
+
+    public int calcLampsLuminosity(){
+        int lampsLuminosity=0;
+        for(int i=0;i<objectsInRoom.size();i++){
+            if ()
+        }
+
+
+    }
+    public int calcOverallLuminosity(){
+        int overallLuminosity= numberOfWindows*700+
     }
 
 

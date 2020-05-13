@@ -33,7 +33,27 @@ public class Building {
         return null;
     }
 
-    public void describe(){
 
+    public void describe(){
+        for (int i; roomsInBuilding.size();i++) {
+            describeRoom();
+        }
+
+    }
+    public void describeRoom(){
+        System.out.print(roomsInBuilding.get());
+        describeLuminocity();
+        describeArea();
+        describefurniture();
+    }
+
+    private void describefurniture() {
+    }
+
+    private void describeArea() {
+    }
+
+    private void describeLuminocity() {
+        System.out.println(calcOverallLuminosity() );
     }
 }

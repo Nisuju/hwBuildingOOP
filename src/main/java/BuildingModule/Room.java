@@ -13,30 +13,49 @@ public class Room {
         this.roomArea = roomArea;
         this.numberOfWindows = numberOfWindows;
     }
-    private List<Stuff> objectsInRoom =new ArrayList<Stuff>();
+
+    private List<Lamp> lampsInRoom = new ArrayList<Lamp>();
+   private List<Furniture> furnituresinRoom = new ArrayList<Furniture>();
+
 
     public String getRoomName() {
         return roomName;
     }
-    public void add(Lamp lamp){
-        objectsInRoom.add(lamp);
-    }
-    public void add(Furniture furniture){
-        objectsInRoom.add(furniture);
+
+    public void add(Lamp lamp) {
+        lampsInRoom.add(lamp);
     }
 
-    public int calcLampsLuminosity(){
-        int lampsLuminosity=0;
-        for(int i=0;i<objectsInRoom.size();i++){
-            if ()
+    public void add(Furniture furniture) {
+        furnituresinRoom.add(furniture);
+    }
+
+    public int calcLampsLuminosity() {
+        int lampsLuminosity = 0;
+        for (int i = 0; i < lampsInRoom.size(); i++) {
+            lampsLuminosity = lampsLuminosity + lampsInRoom.get(i).luminosity;
+
         }
-
+        return lampsLuminosity;
 
     }
-    public int calcOverallLuminosity(){
-        int overallLuminosity= numberOfWindows*700+
-    }
 
+    public int calcOverallLuminosity() {
+        int overallLuminosity = numberOfWindows * 700 + calcLampsLuminosity();
+        return overallLuminosity;
+    }
+    public int calcOccupiedArea(){
+        int occupiedArea=0;
+        for(int i=0; i<furnituresinRoom.size();i++){
+            occupiedArea=occupiedArea+furnituresinRoom.get(i).furnitureArea;
+
+        }
+        for(int i=0; i<furnituresinRoom.size();i++){
+            occupiedArea=occupiedArea+furnituresinRoom.get(i).furnitureMaxArea;
+
+        }
+        return occupiedArea;
+    }
 
 
     @Override

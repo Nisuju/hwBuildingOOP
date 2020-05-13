@@ -21,6 +21,9 @@ public class Room {
     public String getRoomName() {
         return roomName;
     }
+    public int getNumberOfWindows(){return numberOfWindows;}
+
+
 
     public void add(Lamp lamp) {
         lampsInRoom.add(lamp);
@@ -37,6 +40,15 @@ public class Room {
 
         }
         return lampsLuminosity;
+
+    }
+    public String createTextEachLampLuminocity(){
+        String textEachLampLuminocity="";
+        for(int i=0;i<lampsInRoom.size();i++){
+            textEachLampLuminocity=textEachLampLuminocity+" "+String.valueOf(lampsInRoom.get(i).getLuminosity()+" lux");
+
+        }
+        return textEachLampLuminocity;
 
     }
 

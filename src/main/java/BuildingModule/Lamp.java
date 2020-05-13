@@ -6,4 +6,8 @@ public class Lamp implements Stuff {
     public Lamp(int luminosity) {
         this.luminosity = luminosity;
     }
+
+    public int getLuminosity() {
+        return luminosity;
+    }
 }

@@ -1,5 +1,8 @@
 package BuildingModule;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +12,8 @@ public class Building {
     public Building(String buildingName) {
         this.buildingName = buildingName;
     }
+
+    Logger logger = LogManager.getLogger();
 
     private List<Room> roomsInBuilding = new ArrayList<Room>();
 
@@ -34,26 +39,34 @@ public class Building {
     }
 
 
-    public void describe(){
-        for (int i; roomsInBuilding.size();i++) {
-            describeRoom();
+    public void describe() {
+        for (int i = 0; i < roomsInBuilding.size(); i++) {
+
+            logger.info(" " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) + describeArea(i));
+
         }
 
     }
-    public void describeRoom(){
-        System.out.print(roomsInBuilding.get());
-        describeLuminocity();
-        describeArea();
-        describefurniture();
+
+//    public void describeRoom(int i) {
+//
+//        describeLuminocity(i);
+//        describeArea(i);
+//        describefurniture(i);
+//    }
+
+    private String describeLuminocity(int i) {
+        String descriptionOfLuminocity = ("Luminocity = " + roomsInBuilding.get(i).calcOverallLuminosity() + "(" + roomsInBuilding.get(i).getNumberOfWindows()
+                + " windows, 700 lux each, " + "Lamps:" + roomsInBuilding.get(i).createTextEachLampLuminocity() + ")");
+        return descriptionOfLuminocity;
     }
 
-    private void describefurniture() {
+    private String describeArea(int i) {
+        return
     }
 
-    private void describeArea() {
+    private void describefurniture(int i) {
     }
 
-    private void describeLuminocity() {
-        System.out.println(calcOverallLuminosity() );
-    }
+
 }

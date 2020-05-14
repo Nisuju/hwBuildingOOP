@@ -15,11 +15,19 @@ public class Building {
 
     Logger logger = LogManager.getLogger();
 
+    public String getBuildingName() {
+        return buildingName;
+    }
+
     private List<Room> roomsInBuilding = new ArrayList<Room>();
 
 
-    public void addRoom(String roomName, int roomArea, int numberOfWindows) {
+    public void addRoom(String roomName, int roomArea, int numberOfWindows) throws IlluminanceTooMuchException {
         roomsInBuilding.add(new Room(roomName, roomArea, numberOfWindows));
+
+        if(getRoom(roomName).calcOverallLuminosity()>4000){
+            throw new IlluminanceTooMuchException();
+        }
     }
 
     public void showAllRooms() {
@@ -40,21 +48,17 @@ public class Building {
 
 
     public void describe() {
+
         for (int i = 0; i < roomsInBuilding.size(); i++) {
 
-            logger.info(" " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) +
+            logger.info(getBuildingName()+ " " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) +
                     describeArea(i));
 
         }
 
     }
 
-//    public void describeRoom(int i) {
-//
-//        describeLuminocity(i);
-//        describeArea(i);
-//        describefurniture(i);
-//    }
+
 
     private String describeLuminocity(int i) {
         String descriptionOfLuminocity = ("Luminocity = " + roomsInBuilding.get(i).calcOverallLuminosity() + "(" + roomsInBuilding.get(i).getNumberOfWindows()

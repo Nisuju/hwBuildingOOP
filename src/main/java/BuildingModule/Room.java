@@ -30,11 +30,21 @@ public class Room {
         return roomArea;
     }
 
-    public void add(Lamp lamp) {
-        lampsInRoom.add(lamp);
+    public void add(Lamp lamp) throws IlluminanceTooMuchException,IlluminanceTooFewException{
+        if(calcOverallLuminosity()>4000){
+            throw new IlluminanceTooMuchException();
+        }
+        if(calcOverallLuminosity()<300 ){
+            throw new IlluminanceTooFewException();
+
+        }
+            lampsInRoom.add(lamp);
     }
 
-    public void add(Furniture furniture) {
+    public void add(Furniture furniture) throws SpaceUsageTooMuchException {
+        if(calcFreeAreaInPercent()<=70){
+            throw new SpaceUsageTooMuchException();
+        }
         furnituresinRoom.add(furniture);
     }
 

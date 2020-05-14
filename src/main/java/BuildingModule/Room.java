@@ -30,19 +30,19 @@ public class Room {
         return roomArea;
     }
 
-    public void add(Lamp lamp) throws IlluminanceTooMuchException,IlluminanceTooFewException{
-        if(calcOverallLuminosity()>4000){
+    public void add(Lamp lamp) throws IlluminanceTooMuchException, IlluminanceTooFewException {
+        if (calcOverallLuminosity() > 4000) {
             throw new IlluminanceTooMuchException();
         }
-        if(calcOverallLuminosity()<300 ){
+        if (calcOverallLuminosity() < 300) {
             throw new IlluminanceTooFewException();
 
         }
-            lampsInRoom.add(lamp);
+        lampsInRoom.add(lamp);
     }
 
     public void add(Furniture furniture) throws SpaceUsageTooMuchException {
-        if(calcFreeAreaInPercent()<=70){
+        if (calcFreeAreaInPercent() <= 70) {
             throw new SpaceUsageTooMuchException();
         }
         furnituresinRoom.add(furniture);
@@ -72,7 +72,7 @@ public class Room {
         String textEachFurnitureDescription = "";
         for (int i = 0; i < furnituresinRoom.size(); i++) {
             textEachFurnitureDescription = textEachFurnitureDescription + " " + furnituresinRoom.get(i).getFurnitureName()
-                    +"("+ createTextForFurnuturesDescription(i)+")";
+                    + "(" + createTextForFurnuturesDescription(i) + ")";
 
         }
         return textEachFurnitureDescription;
@@ -82,10 +82,10 @@ public class Room {
         String textForFurnuturesEachArea = "";
 
         if (furnituresinRoom.get(i).furnitureArea == 0) {
-            textForFurnuturesEachArea = textForFurnuturesEachArea + " from "+furnituresinRoom.get(i).getTextFurnitureMinArea() +"m^2"+
-                    " up to " + furnituresinRoom.get(i).getTextFurnitureMaxArea()+"m^2";
+            textForFurnuturesEachArea = textForFurnuturesEachArea + " from " + furnituresinRoom.get(i).getTextFurnitureMinArea() + "m^2" +
+                    " up to " + furnituresinRoom.get(i).getTextFurnitureMaxArea() + "m^2";
         } else {
-            textForFurnuturesEachArea = textForFurnuturesEachArea +" "+ furnituresinRoom.get(i).getTextFurnitureArea()+"m^2";
+            textForFurnuturesEachArea = textForFurnuturesEachArea + " " + furnituresinRoom.get(i).getTextFurnitureArea() + "m^2";
 
         }
 

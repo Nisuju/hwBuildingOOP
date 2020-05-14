@@ -25,7 +25,7 @@ public class Building {
     public void addRoom(String roomName, int roomArea, int numberOfWindows) throws IlluminanceTooMuchException {
         roomsInBuilding.add(new Room(roomName, roomArea, numberOfWindows));
 
-        if(getRoom(roomName).calcOverallLuminosity()>4000){
+        if (getRoom(roomName).calcOverallLuminosity() > 4000) {
             throw new IlluminanceTooMuchException();
         }
     }
@@ -51,13 +51,12 @@ public class Building {
 
         for (int i = 0; i < roomsInBuilding.size(); i++) {
 
-            logger.info(getBuildingName()+ " " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) +
+            logger.info(getBuildingName() + " " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) +
                     describeArea(i));
 
         }
 
     }
-
 
 
     private String describeLuminocity(int i) {
@@ -67,9 +66,9 @@ public class Building {
     }
 
     private String describeArea(int i) {
-        String descriptionOfArea=(" Area: "+roomsInBuilding.get(i).getRoomArea()+"m^2 ("+roomsInBuilding.get(i).calcOccupiedArea()+
-                " is occupied, "+roomsInBuilding.get(i).calcFreeArea() +"m^2 or "+roomsInBuilding.get(i).calcFreeAreaInPercent()
-        +"% is free) "+"Furniture: "+" ("+ roomsInBuilding.get(i).createTextEachFurnitureDescription())+")";
+        String descriptionOfArea = (" Area: " + roomsInBuilding.get(i).getRoomArea() + "m^2 (" + roomsInBuilding.get(i).calcOccupiedArea() +
+                " is occupied, " + roomsInBuilding.get(i).calcFreeArea() + "m^2 or " + roomsInBuilding.get(i).calcFreeAreaInPercent()
+                + "% is free) " + "Furniture: " + " (" + roomsInBuilding.get(i).createTextEachFurnitureDescription()) + ")";
         return descriptionOfArea;
     }
 

@@ -42,7 +42,8 @@ public class Building {
     public void describe() {
         for (int i = 0; i < roomsInBuilding.size(); i++) {
 
-            logger.info(" " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) + describeArea(i));
+            logger.info(" " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) +
+                    describeArea(i));
 
         }
 
@@ -62,7 +63,10 @@ public class Building {
     }
 
     private String describeArea(int i) {
-        return
+        String descriptionOfArea=(" Area: "+roomsInBuilding.get(i).getRoomArea()+"m^2 ("+roomsInBuilding.get(i).calcOccupiedArea()+
+                " is occupied, "+roomsInBuilding.get(i).calcFreeArea() +"m^2 or "+roomsInBuilding.get(i).calcFreeAreaInPercent()
+        +"% is free");
+        return descriptionOfArea;
     }
 
     private void describefurniture(int i) {

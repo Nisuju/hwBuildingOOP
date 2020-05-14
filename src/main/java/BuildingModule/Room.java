@@ -15,15 +15,20 @@ public class Room {
     }
 
     private List<Lamp> lampsInRoom = new ArrayList<Lamp>();
-   private List<Furniture> furnituresinRoom = new ArrayList<Furniture>();
+    private List<Furniture> furnituresinRoom = new ArrayList<Furniture>();
 
 
     public String getRoomName() {
         return roomName;
     }
-    public int getNumberOfWindows(){return numberOfWindows;}
 
+    public int getNumberOfWindows() {
+        return numberOfWindows;
+    }
 
+    public int getRoomArea() {
+        return roomArea;
+    }
 
     public void add(Lamp lamp) {
         lampsInRoom.add(lamp);
@@ -42,10 +47,11 @@ public class Room {
         return lampsLuminosity;
 
     }
-    public String createTextEachLampLuminocity(){
-        String textEachLampLuminocity="";
-        for(int i=0;i<lampsInRoom.size();i++){
-            textEachLampLuminocity=textEachLampLuminocity+" "+String.valueOf(lampsInRoom.get(i).getLuminosity()+" lux");
+
+    public String createTextEachLampLuminocity() {
+        String textEachLampLuminocity = "";
+        for (int i = 0; i < lampsInRoom.size(); i++) {
+            textEachLampLuminocity = textEachLampLuminocity + " " + String.valueOf(lampsInRoom.get(i).getLuminosity() + " lux");
 
         }
         return textEachLampLuminocity;
@@ -56,17 +62,29 @@ public class Room {
         int overallLuminosity = numberOfWindows * 700 + calcLampsLuminosity();
         return overallLuminosity;
     }
-    public int calcOccupiedArea(){
-        int occupiedArea=0;
-        for(int i=0; i<furnituresinRoom.size();i++){
-            occupiedArea=occupiedArea+furnituresinRoom.get(i).furnitureArea;
+
+    public int calcOccupiedArea() {
+        int occupiedArea = 0;
+        for (int i = 0; i < furnituresinRoom.size(); i++) {
+            occupiedArea = occupiedArea + furnituresinRoom.get(i).furnitureArea;
 
         }
-        for(int i=0; i<furnituresinRoom.size();i++){
-            occupiedArea=occupiedArea+furnituresinRoom.get(i).furnitureMaxArea;
+        for (int i = 0; i < furnituresinRoom.size(); i++) {
+            occupiedArea = occupiedArea + furnituresinRoom.get(i).furnitureMaxArea;
 
         }
         return occupiedArea;
+    }
+
+    public int calcFreeArea() {
+        int freeArea = roomArea - calcOccupiedArea();
+        return freeArea;
+    }
+
+    public float calcFreeAreaInPercent() {
+        float freeAreaInPercent = (float) calcFreeArea() / (float) roomArea;
+        freeAreaInPercent = freeAreaInPercent * 100;
+        return freeAreaInPercent;
     }
 
 

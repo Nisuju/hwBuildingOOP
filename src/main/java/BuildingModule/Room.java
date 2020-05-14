@@ -58,6 +58,29 @@ public class Room {
 
     }
 
+    public String createTextEachFurnitureDescription() {
+        String textEachFurnitureDescription = "";
+        for (int i = 0; i < furnituresinRoom.size(); i++) {
+            textEachFurnitureDescription = textEachFurnitureDescription + " " + furnituresinRoom.get(i).getFurnitureName()
+                    + createTextForFurnuturesDescription(i);
+
+        }
+        return textEachFurnitureDescription;
+    }
+
+    public String createTextForFurnuturesDescription(int i) {
+        String textForFurnuturesEachArea = "";
+
+        if (furnituresinRoom.get(i).furnitureArea == 0) {
+            textForFurnuturesEachArea = textForFurnuturesEachArea + furnituresinRoom.get(i).getTextFurnitureMinArea() + " " + furnituresinRoom.get(i).getTextFurnitureMaxArea();
+        } else {
+            textForFurnuturesEachArea = textForFurnuturesEachArea + furnituresinRoom.get(i).getTextFurnitureArea();
+
+        }
+
+        return textForFurnuturesEachArea;
+    }
+
     public int calcOverallLuminosity() {
         int overallLuminosity = numberOfWindows * 700 + calcLampsLuminosity();
         return overallLuminosity;
@@ -96,5 +119,6 @@ public class Room {
                 ", numberOfWindows=" + numberOfWindows +
                 '}';
     }
+
 
 }

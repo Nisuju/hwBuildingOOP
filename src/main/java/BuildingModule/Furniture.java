@@ -16,4 +16,23 @@ public abstract class Furniture implements Stuff {
         this.furnitureMinArea = furnitureMinArea;
         this.furnitureMaxArea = furnitureMaxArea;
     }
+
+    public String getFurnitureName() {
+        return furnitureName;
+    }
+
+    public String getTextFurnitureArea() {
+        String textFurnitureArea=String.valueOf(furnitureArea);
+        return textFurnitureArea;
+    }
+
+    public String getTextFurnitureMinArea() {
+        String textFurnitureMinArea=String.valueOf(furnitureMinArea);
+        return textFurnitureMinArea;
+    }
+
+    public String getTextFurnitureMaxArea() {
+        String textFurnitureMaxArea=String.valueOf(furnitureMaxArea);
+        return textFurnitureMaxArea;
+    }
 }

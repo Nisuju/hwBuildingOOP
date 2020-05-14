@@ -65,7 +65,7 @@ public class Building {
     private String describeArea(int i) {
         String descriptionOfArea=(" Area: "+roomsInBuilding.get(i).getRoomArea()+"m^2 ("+roomsInBuilding.get(i).calcOccupiedArea()+
                 " is occupied, "+roomsInBuilding.get(i).calcFreeArea() +"m^2 or "+roomsInBuilding.get(i).calcFreeAreaInPercent()
-        +"% is free) "+"Furniture: "+" ("+ roomsInBuilding.get(i).createTextEachFurnitureDescription());
+        +"% is free) "+"Furniture: "+" ("+ roomsInBuilding.get(i).createTextEachFurnitureDescription())+")";
         return descriptionOfArea;
     }
 

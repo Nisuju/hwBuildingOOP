@@ -62,7 +62,7 @@ public class Room {
         String textEachFurnitureDescription = "";
         for (int i = 0; i < furnituresinRoom.size(); i++) {
             textEachFurnitureDescription = textEachFurnitureDescription + " " + furnituresinRoom.get(i).getFurnitureName()
-                    + createTextForFurnuturesDescription(i);
+                    +"("+ createTextForFurnuturesDescription(i)+")";
 
         }
         return textEachFurnitureDescription;
@@ -72,9 +72,10 @@ public class Room {
         String textForFurnuturesEachArea = "";
 
         if (furnituresinRoom.get(i).furnitureArea == 0) {
-            textForFurnuturesEachArea = textForFurnuturesEachArea + furnituresinRoom.get(i).getTextFurnitureMinArea() + " " + furnituresinRoom.get(i).getTextFurnitureMaxArea();
+            textForFurnuturesEachArea = textForFurnuturesEachArea + " from "+furnituresinRoom.get(i).getTextFurnitureMinArea() +"m^2"+
+                    " up to " + furnituresinRoom.get(i).getTextFurnitureMaxArea()+"m^2";
         } else {
-            textForFurnuturesEachArea = textForFurnuturesEachArea + furnituresinRoom.get(i).getTextFurnitureArea();
+            textForFurnuturesEachArea = textForFurnuturesEachArea +" "+ furnituresinRoom.get(i).getTextFurnitureArea()+"m^2";
 
         }
 

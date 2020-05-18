@@ -73,8 +73,7 @@ public class Building {
         return descriptionOfArea;
     }
 
-    private void describefurniture(int i) {
-    }
+
 
 
 }

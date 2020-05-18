@@ -48,13 +48,14 @@ public class Building {
 
 
     public void describe() {
+        String texttDescriptionOfRooms = "";
 
         for (int i = 0; i < roomsInBuilding.size(); i++) {
-
-            logger.info(getBuildingName() + " " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) +
-                    describeArea(i));
+            texttDescriptionOfRooms = texttDescriptionOfRooms + ". " + getBuildingName() + " " + roomsInBuilding.get(i).getRoomName() + ": " + describeLuminocity(i) +
+                    describeArea(i);
 
         }
+        logger.info(texttDescriptionOfRooms);
 
     }
 

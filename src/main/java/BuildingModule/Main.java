@@ -24,7 +24,6 @@ public class Main {
         }
 
 
-
         try {
             building.getRoom("Room1").add(new Table("Office Table", 2, 3));
         } catch (SpaceUsageTooMuchException e) {
@@ -37,7 +36,6 @@ public class Main {
         } catch (SpaceUsageTooMuchException e) {
             logger.error("SpaceUsageTooMuchException");
         }
-
 
 
         try {
@@ -74,7 +72,6 @@ public class Main {
         } catch (IlluminanceTooFewException e) {
             logger.error("IlluminanceTooFewException");
         }
-
 
 
         try {

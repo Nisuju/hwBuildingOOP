@@ -7,6 +7,8 @@ public class Room {
     private String roomName;
     private int roomArea;
     private int numberOfWindows;
+    private List<Lamp> lampsInRoom = new ArrayList<Lamp>();
+    private List<Furniture> furnituresinRoom = new ArrayList<Furniture>();
 
     public Room(String roomName, int roomArea, int numberOfWindows) {
         this.roomName = roomName;
@@ -14,8 +16,7 @@ public class Room {
         this.numberOfWindows = numberOfWindows;
     }
 
-    private List<Lamp> lampsInRoom = new ArrayList<Lamp>();
-    private List<Furniture> furnituresinRoom = new ArrayList<Furniture>();
+
 
 
     public String getRoomName() {
@@ -32,10 +33,10 @@ public class Room {
 
     public void add(Lamp lamp) throws IlluminanceTooMuchException, IlluminanceTooFewException {
         if (calcOverallLuminosity() > 4000) {
-            throw new IlluminanceTooMuchException();
+            throw new IlluminanceTooMuchException("IlluminanceTooMuchException");
         }
         if (calcOverallLuminosity() < 300) {
-            throw new IlluminanceTooFewException();
+            throw new IlluminanceTooFewException("IlluminanceTooFewException");
 
         }
         lampsInRoom.add(lamp);
@@ -51,7 +52,7 @@ public class Room {
     public int calcLampsLuminosity() {
         int lampsLuminosity = 0;
         for (int i = 0; i < lampsInRoom.size(); i++) {
-            lampsLuminosity = lampsLuminosity + lampsInRoom.get(i).luminosity;
+            lampsLuminosity = lampsLuminosity + lampsInRoom.get(i).getLuminosity();
 
         }
         return lampsLuminosity;

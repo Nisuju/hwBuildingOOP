@@ -57,7 +57,7 @@ public class Main {
         try {
             building.getRoom("Room1").add(new Lamp(150));
         } catch (IlluminanceTooMuchException e) {
-            logger.error("IlluminanceTooMuchException");
+            logger.error(e.getMessage());
 
         } catch (IlluminanceTooFewException e) {
             logger.error("IlluminanceTooFewException");

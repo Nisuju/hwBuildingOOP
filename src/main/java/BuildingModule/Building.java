@@ -7,19 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Building {
-    String buildingName;
+    private String buildingName;
+    private List<Room> roomsInBuilding = new ArrayList<Room>();
+    Logger logger = LogManager.getLogger();
 
     public Building(String buildingName) {
         this.buildingName = buildingName;
     }
 
-    Logger logger = LogManager.getLogger();
+
 
     public String getBuildingName() {
         return buildingName;
     }
 
-    private List<Room> roomsInBuilding = new ArrayList<Room>();
+
 
 
     public void addRoom(String roomName, int roomArea, int numberOfWindows) throws IlluminanceTooMuchException {

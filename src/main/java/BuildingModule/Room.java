@@ -33,7 +33,7 @@ public class Room {
 
     public void add(Lamp lamp) throws IlluminanceTooMuchException, IlluminanceTooFewException {
         if (calcOverallLuminosity() > 4000) {
-            throw new IlluminanceTooMuchException("IlluminanceTooMuchException");
+            throw new IlluminanceTooMuchException("IlluminanceTooMuchException");// вот откуда берется текст для exeption по преподскому способу
         }
         if (calcOverallLuminosity() < 300) {
             throw new IlluminanceTooFewException("IlluminanceTooFewException");

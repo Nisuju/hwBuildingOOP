@@ -57,10 +57,10 @@ public class Main {
         try {
             building.getRoom("Room1").add(new Lamp(150));
         } catch (IlluminanceTooMuchException e) {
-            logger.error(e.getMessage());
+            logger.error(e.getMessage()); // вот тут сообзение по другому, он мне сказал так сделать когда защищался
 
         } catch (IlluminanceTooFewException e) {
-            logger.error("IlluminanceTooFewException");
+            logger.error("IlluminanceTooFewException"); // а это как было до защиты
         }
 
 
